@@ -6,6 +6,7 @@
 #define MAX 1024*512	//512kb大小
 #define PATH "e:\\workplace\\gpt.img"
 #define wdPATH "e:\\workplace\\gpt.dat"
+
 using namespace std;
 int value[MAX];	//存放读取的数据
 
@@ -40,8 +41,8 @@ void wrFile()
 		c = fin.get();
 		value[j * 16 + i] = ((long(c)) & 0x000000ff);
 		if (i == 0)
-			fout << hex << setw(7) << j << "0h->";
-		fout << hex << setw(2) << value[j*16+i] << " ";
+			fout << hex << setw(7) << j << "0h ";
+		fout << hex << setw(2) << value[j * 16 + i] << " ";
 		if (i++ == 15)
 		{
 			fout << endl;
@@ -58,12 +59,18 @@ void scanFile()
 {
 	char a[MAX];
 	string str;
-	ifstream fin(wdPATH);
+	ifstream fin;
+	fin.open(wdPATH);
 	
+	fin.getline(a, 58);
+	cout << a;
+	fin.close();
+
 }
 
 int main()
 {
-	wrFile();
+	//wrFile();
+	scanFile();
 	system("pause");
 }
