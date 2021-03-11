@@ -3,7 +3,7 @@
 #include<iomanip>
 #include<string.h>
 
-#define MAX 16*10000
+#define MAX 1024*512	//512kb大小
 #define PATH "e:\\workplace\\gpt.img"
 #define wdPATH "e:\\workplace\\gpt.dat"
 using namespace std;
@@ -56,7 +56,10 @@ void wrFile()
 /*扫描读取分区名和计算分区大小*/
 void scanFile()
 {
-
+	char a[MAX];
+	string str;
+	ifstream fin(wdPATH);
+	
 }
 
 int main()
